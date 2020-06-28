@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ post.title }}</h1>
+<small>By: {{ post.author.first_name }} {{ post.author.name_name }}, Published: {{post.published_date}}</small><br/>
+<hr>
+<br/>
+<img style="width:600px;height:auto;overflow:hidden; margin-right: 15px;clear: both;"class="img-thumbnail rounded float-left" src="{{ post.thumbnail.url }}"/>
+<br/>
+<p style="clear: both;word-wrap: break-word">{{ post.body }}</p>
+<br/><br/>
+<a href="{% url 'home' %}">Back</a>
+
+{% endblock %}

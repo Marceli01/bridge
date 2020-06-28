@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+{% for post in object_list reversed %}
+    <div style ="height: 230px;" class = "post">
+    <img style="width:200px;height:200px;overflow:hidden; margin-right: 15px;"class="img-thumbnail rounded float-left" src="{{ post.thumbnail.url }}"/>
+    <a style="color: black; font-family:verdana; font-size: 130%;"href = "{% url 'article-detail' post.pk %}">{{ post.title }}</a><br/>
+    <hr>
+    <p style="font-size: 90%; color: rgb(134, 134, 134);">by {{ post.author.first_name }}, Published: {{post.published_date}}</p>
+    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 800px;">{{ post.body }}</p>
+    </div>
+{% endfor%}
+</ul>
+
+{% endblock %}
